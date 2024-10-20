@@ -19,6 +19,12 @@ const DashboardPage = () => {
     };
 
     useEffect(() => {
+        const queryParams = new URLSearchParams(window.location.search);
+        const accessToken = queryParams.get('access_token');
+
+        if (accessToken) {
+            localStorage.setItem('access_token', accessToken);
+        }
         const loadData = async () => {
             try {
                 const data = await fetchDashboardData(days);
