@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 const GoogleLoginButton = () => {
     const handleGoogleLogin = () => {
         // Redirect to your backend's Google OAuth endpoint
-        window.location.href = `${process.env.REACT_APP_GOOGLE_OAUTH_URL}?redirect_uri=/dashboard`;
+        window.location.href = `${process.env.REACT_APP_GOOGLE_OAUTH_URL}?redirect_uri=${process.env.REACT_APP_FRONTEND_URL}/dashboard`;
     };
 
     return (
