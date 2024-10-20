@@ -5,10 +5,11 @@ import { TextField, Button, Box, Typography } from '@mui/material';
 const RegisterForm = ({ onRegister }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [displayName, setDisplayName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ email, password });
+    onRegister({ email, password, display_name: displayName });
   };
 
   return (
@@ -28,6 +29,14 @@ const RegisterForm = ({ onRegister }) => {
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        margin="normal"
+        required
+      />
+      <TextField
+        fullWidth
+        label="DisplayName"
+        value={displayName}
+        onChange={(e) => setDisplayName(e.target.value)}
         margin="normal"
         required
       />
