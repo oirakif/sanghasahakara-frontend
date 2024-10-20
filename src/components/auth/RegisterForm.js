@@ -34,7 +34,7 @@ const RegisterForm = ({ onRegister }) => {
       />
       <TextField
         fullWidth
-        label="DisplayName"
+        label="Display Name"
         value={displayName}
         onChange={(e) => setDisplayName(e.target.value)}
         margin="normal"
