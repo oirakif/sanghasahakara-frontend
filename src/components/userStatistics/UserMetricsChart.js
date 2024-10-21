@@ -5,26 +5,18 @@ import { Chart, LineElement, CategoryScale, LinearScale, PointElement, Title } f
 
 Chart.register(LineElement, CategoryScale, LinearScale, PointElement, Title);
 
-const UserMetricsChart = ({ chartData, totalUsersCount }) => {
+const UserMetricsChart = ({ chartData, totalUsersCount, distinctUsersCount, avgActiveUsersCount }) => {
   return (
-    <div>
+    <>
       <Line
         data={{
           labels: chartData.labels,
           datasets: [
             {
-              label: 'Distinct Users',
-              data: chartData.distinctUsersData,
-              backgroundColor: 'rgba(75, 192, 192, 0.4)', // Blue color for distinct users
-              borderColor: 'rgba(75, 192, 192, 1)', // Solid blue line
-              borderWidth: 2,
-              fill: false, // Do not fill under the line
-            },
-            {
-              label: 'Avg Active Users',
-              data: chartData.avgActiveUsersData,
-              backgroundColor: 'rgba(255, 99, 132, 0.4)', // Red color for average active users
-              borderColor: 'rgba(0, 255, 0, 1)', // Solid green line
+              label: 'Average Active Users',
+              data: chartData.chartActiveUsersCount,
+              backgroundColor: 'rgba(75, 192, 192, 0.4)',
+              borderColor: 'rgba(75, 192, 192, 0.4)', // Solid blue line
               borderWidth: 2,
               fill: false, // Do not fill under the line
             },
@@ -45,10 +37,17 @@ const UserMetricsChart = ({ chartData, totalUsersCount }) => {
         }}
       />
 
-      <div style={{ marginTop: '20px' }}>
+      <div style={{ marginTop: '20px', textAlign: 'center' }}>
+        <div>
+          <span style={{ color: 'rgba(75, 192, 192, 0.4)', marginLeft: '15px' }}>
+            <strong>●</strong> Avg Active Users by Date
+          </span>
+        </div>
         <h3>Total Users Count: {totalUsersCount}</h3>
+        <h3>Distinct Users Count Today: {distinctUsersCount}</h3>
+        <h3>Average Active Users: {avgActiveUsersCount}</h3>
       </div>
-    </div>
+    </>
   );
 };
 

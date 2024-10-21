@@ -15,17 +15,22 @@ apiClient.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => {
+
+    Promise.reject(error)
+    window.location.href = '/login'
+  }
 );
 
 // Add a response interceptor to handle expired or invalid tokens
 apiClient.interceptors.response.use(
   (response) => response, // Pass successful responses
   (error) => {
+    console.log(error)
     if (error.response && error.response.status === 401) {
       // Token is invalid or expired
       console.error('Token expired or invalid. Logging out...');
-      
+
       // Optionally, clear the token and redirect to login
       localStorage.removeItem('token');
       window.location.href = '/login'; // Redirect to the login page
