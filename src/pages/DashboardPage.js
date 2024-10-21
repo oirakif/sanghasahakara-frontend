@@ -4,6 +4,7 @@ import { Container, Box, Typography } from '@mui/material';
 import { fetchDashboardData } from '../services/dashboardService';
 import DaysSelector from '../components/dashboard/DaysSelector';
 import UserMetricsChart from '../components/dashboard/UserMetricsChart';
+import { useSearchParams } from "react-router-dom";
 
 const DashboardPage = () => {
     const [days, setDays] = useState(7); // Default to 7 days
@@ -13,17 +14,16 @@ const DashboardPage = () => {
         avgActiveUsersData: [],
     });
     const [totalUsersCount, setTotalUsersCount] = useState(0);
+    const [searchParams] = useSearchParams();
 
     const handleDaysChange = (event) => {
         setDays(event.target.value);
     };
 
     useEffect(() => {
-        const queryParams = new URLSearchParams(window.location.search);
-        const accessToken = queryParams.get('access_token');
-
+        const accessToken = searchParams.get('access_token');
         if (accessToken) {
-            localStorage.setItem('access_token', accessToken);
+            localStorage.setItem('token', accessToken);
         }
         const loadData = async () => {
             try {
@@ -42,7 +42,7 @@ const DashboardPage = () => {
         };
 
         loadData();
-    }, [days]); // Re-fetch data when `days` changes
+    }, [days, searchParams]); // Re-fetch data when `days` changes
 
     return (
         <Container maxWidth="md">
