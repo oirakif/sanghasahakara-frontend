@@ -21,7 +21,7 @@ const Sidebar = () => {
         >
             <Toolbar>
                 <Typography variant="h6" noWrap>
-                    Admin Panel
+                    User Statistics
                 </Typography>
             </Toolbar>
             <Divider />
