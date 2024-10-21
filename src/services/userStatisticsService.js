@@ -1,6 +1,6 @@
 import apiClient from '../utils/apiClient';
 
-export const fetchDashboardData = async (daysInterval) => {
+export const fetchUserStatisticsData = async (daysInterval) => {
   try {
     const token = localStorage.getItem('token');
 
@@ -9,6 +9,7 @@ export const fetchDashboardData = async (daysInterval) => {
         Authorization: `Bearer ${token}`,
       },
     });
+
     return response.data.data;
   } catch (error) {
     console.error('Error fetching dashboard data:', error);
