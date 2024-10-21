@@ -4,7 +4,9 @@ import { Box, Typography } from '@mui/material';
 const UsersInfo = ({ user }) => {
   return (
     <Box>
+      <Typography variant="body1">ID: {user.id}</Typography>
       <Typography variant="body1">Email: {user.email}</Typography>
+      <Typography variant="body1">Display Name: {user.display_name}</Typography>
       <Typography variant="body1">Email Verified: {user.is_email_verified ? 'Yes' : 'No'}</Typography>
       <Typography variant="body1">Account Type: {user.account_type}</Typography>
       <Typography variant="body1">Status: {user.status}</Typography>

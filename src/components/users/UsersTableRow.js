@@ -6,6 +6,7 @@ const UsersTableRow = ({ user }) => {
     <TableRow>
       <TableCell>{user.id}</TableCell>
       <TableCell>{user.email}</TableCell>
+      <TableCell>{user.display_name}</TableCell>
       <TableCell>{user.is_email_verified ? 'Yes' : 'No'}</TableCell>
       <TableCell>{user.account_type}</TableCell>
       <TableCell>{user.status}</TableCell>
