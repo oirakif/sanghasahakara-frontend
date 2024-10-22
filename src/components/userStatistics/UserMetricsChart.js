@@ -44,7 +44,7 @@ const UserMetricsChart = ({ chartData, totalUsersCount, distinctUsersCount, avgA
           </span>
         </div>
         <h3>Total Users Count: {totalUsersCount}</h3>
-        <h3>Distinct Users Count Today: {distinctUsersCount}</h3>
+        <h3>Active Users Count Today: {distinctUsersCount}</h3>
         <h3>Average Active Users: {avgActiveUsersCount}</h3>
       </div>
     </>
